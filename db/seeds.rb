@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+user = User.find_or_create_by!(email: "test@gmail.com") do |u|
+  u.password = "123456"
+end
+
+trip = Trip.find_or_create_by!(
+  departure: "Paris",
+  budget: 200,
+  destination: "Alger",
+  duration: 2,
+  user: user
+)

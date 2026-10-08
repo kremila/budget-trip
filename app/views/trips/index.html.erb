@@ -1,0 +1,27 @@
+<h1> My trips </h1>
+
+
+<%= form_with url: trips_path, method: :get do |f| %>
+  <%= f.label :budget, "Budget maximum" %>
+  <%= f.number_field :budget %>
+
+  <%= f.label :departure, "Départ" %>
+  <%= f.text_field :departure %>
+
+  <%= f.label :destination, "destination" %>
+  <%= f.text_field :destination %>
+
+  <%= f.label :duration, "durée" %>
+  <%= f.number_field :duration %>
+
+
+  <%= f.submit "Rechercher" %>
+<% end %>
+
+<% @trips.each do |trip|%>
+<%= trip.departure %>
+<%= trip.budget %>
+<%= trip.destination %>
+<%= trip.duration %>
+<%= link_to "Voir le voyage", trip_path(trip) %>
+<% end %>
